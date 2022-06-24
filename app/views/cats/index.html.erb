@@ -30,13 +30,10 @@
   </div>
 </div>
 
-<!-- 一覧 -->
-<div class="card shadow mt-3">
-  <div class="card-header">
-    <%= icon_with_text("table", "一覧") %>
-  </div>
-
-  <div class="card-body mx-3">
+<div class="card-body mx-3">
+  <%# 一覧部分をturbo_frame_tagで囲う %>
+  <%# id属性は"cats-list"とする %>
+  <%= turbo_frame_tag "cats-list" do %>
     <div class="row py-2">
       <div class="col-4 mt-auto">
         <%= sort_link(@search, :name) %>
@@ -57,5 +54,5 @@
     <div class="d-flex justify-content-end mt-3">
       <%= paginate @cats %>
     </div>
-  </div>
+  <% end %>
 </div>
